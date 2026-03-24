@@ -2,13 +2,26 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "playvirus.c"
+
 char userInput[100];
 
 void printMarquee();
 void startProgram();
 
-int main()
+int main(int argc, char** argv)
 {
+    for (int i = 0; i < argc; i++) {
+        if (strcmp(argv[i], "-?") == 0) {
+            playVirus();
+            return 0;
+		}
+        if (strcmp(argv[i], "-h") == 0) {
+            printf("i dont know either man\n");
+            return 0;
+		}
+    }
+
     printMarquee();
     startProgram();
 

@@ -1,10 +1,10 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int main()
+int playVirus()
 {
     // note: this path is relative to the location of the EXE, not the src file
-    // point is make sure this path is whatever the final path is relative to the exe
+    // so make sure this path is whatever the final path is relative to the exe
     // a better idea would be to make it absolute but there's no installer for this thing so whatever
     const char *virusfilepath = "easteregg/virus.mp4";
 
