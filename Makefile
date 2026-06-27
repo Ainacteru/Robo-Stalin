@@ -6,7 +6,9 @@ BUILD_OBJS := $(BUILD)/obj
 SRCS := $(shell find src -name "*.c")
 OBJS := $(patsubst src/%.c, $(BUILD_OBJS)/%.o, $(SRCS))
 
-$(BUILD)/Robo-Stalin: $(OBJS) 
+OUT = Robo-Stalin
+
+$(OUT): $(OBJS) 
 	mkdir -p $(BUILD_OBJS)
 	gcc	$(OBJS) -o $@ $(DEPS) 
 
@@ -16,3 +18,4 @@ $(BUILD_OBJS)/%.o: src/%.c
 
 clean:
 	rm -rf $(BUILD)
+	rm -rf $(OUT)
