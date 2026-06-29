@@ -10,7 +10,7 @@ int main(int argc, char **argv) {
     switch (opt) {
     case '?':
       playVideo("./easteregg/virus.mp4");
-      break;
+      return 0;
     case 'h':
       printf("i dont know either man\n");
       break;

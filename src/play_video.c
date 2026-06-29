@@ -13,7 +13,7 @@ void playVideo(const char *videoPath) {
 #elif __linux__
   // yk it would be really funny if we used seomthing like mpv -vo kitty or tct
   // to play the video in the terminal
-  sprintf(command, "xdg-open \"%s\"", videoPath);
+  sprintf(command, "mpv -vo tct \"%s\"", videoPath);
 #endif
 
   system(command);
