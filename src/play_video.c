@@ -11,8 +11,7 @@ void playVideo(const char *videoPath) {
 #elif __APPLE__
   sprintf(command, "open \"%s\"", videoPath);
 #elif __linux__
-  // yk it would be really funny if we used seomthing like mpv -vo kitty or tct
-  // to play the video in the terminal
+  // lwk fire
   sprintf(command, "mpv -vo tct \"%s\"", videoPath);
 #endif
 
