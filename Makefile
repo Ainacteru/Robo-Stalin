@@ -1,4 +1,8 @@
-DEPS := -lcurl
+CC = gcc
+CFLAGS = -Wall -Wextra -Iinclude
+
+NETWORK_DEPS := -lwebsockets -lssl -lcrypto -lpthread
+DEPS := -lcurl $(NETWORK_DEPS)
 
 BUILD := build
 BUILD_OBJS := $(BUILD)/obj
@@ -10,11 +14,11 @@ OUT = Robo-Stalin
 
 $(OUT): $(OBJS) 
 	mkdir -p $(BUILD_OBJS)
-	gcc	$(OBJS) -o $@ $(DEPS) 
+	$(CC) $(CFLAGS) $(OBJS) -o $@ $(DEPS) 
 
 $(BUILD_OBJS)/%.o: src/%.c 
 	mkdir -p $(dir $@)
-	gcc -Iinclude -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -rf $(BUILD)

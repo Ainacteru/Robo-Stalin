@@ -1,4 +1,5 @@
-#include "../include/setup.h"
+#include "setup.h"
+#include <stdio.h>
 
 void clear() 
 {
@@ -35,19 +36,17 @@ void printMarquee()
 
 void introText()
 {	
-	char* userInput;
+	char userInput[4];
+    int len = sizeof(userInput);
 
-	for(;;)
-	{
-	    printf("Would you like to save... the world?????? (y/n)\n");
-	    // scanf("%m[^\n]", userInput);
-		scanf("%s", userInput);
-		if(userInput[0] != '\n') { break; }
-	    // clear();
-	}
-	
-	// i would use a switch statement here but like i need enums or whatever soooo if elses it is
-	// also these messages (and code) more temporary than my appreciation of gary after he doesn't call me gross for 3 seconds
+    printf("Would you like to save... the world?????? (y/n)\n");
+    fgets(userInput, len, stdin);
+
+    printf("\n the array has \n");
+    for (int i = 0; i < len; i++) {
+        if (userInput[i] == '\n') userInput[i] = '\0';
+    }
+
 	if(strcmp(userInput, "y") == 0) {
 		printf("Thank you for your service...");
 	} else if (strcmp(userInput, "yes") == 0) {
@@ -55,7 +54,5 @@ void introText()
 	} else {
 		printf("And so, the world shall end.");
 	}
-	
-	// free(userInput); // this isnt even a malloc anymore lmao
 }
 
