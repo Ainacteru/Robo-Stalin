@@ -56,3 +56,7 @@ dkms.conf
 
 # evil neovim
 compile_flags.txt
+
+# build artifacts
+build/
+Robo-Stalin
